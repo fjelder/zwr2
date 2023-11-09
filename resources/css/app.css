@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+a {
+    @apply text-sky-600 my-2 inline-block;
+}
+a.link::before {
+    content: "";
+    @apply h-11 w-5 bg-blue-300 pr-2 mr-2 transition-all;
+}
+a.link::before:hover {
+    @apply bg-orange-600 pr-6;
+}
+table.mf-table {
+    @apply border-separate border border-slate-400 border-spacing-1 table-auto text-sm;
+}
+table.mf-table th,
+table.mf-table td {
+    @apply border border-slate-400 p-2;
+}
