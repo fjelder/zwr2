@@ -16,22 +16,30 @@ class StationSeeder extends Seeder
         DB::table('stations')->insert([
             'name' => 'Wydartowo',
             'shortName' => 'Wd',
-            'maxNumberOfRailwaySwitches' => 12
+            'maxNumberOfRailwaySwitches' => 12,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         DB::table('stations')->insert([
             'name' => 'Trzemeszno',
             'shortName' => 'Tr',
-            'maxNumberOfRailwaySwitches' => 8
+            'maxNumberOfRailwaySwitches' => 8,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         DB::table('stations')->insert([
             'name' => 'Łódź Żabieniec',
             'shortName' => 'Łż',
-            'maxNumberOfRailwaySwitches' => 32
+            'maxNumberOfRailwaySwitches' => 32,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         DB::table('stations')->insert([
             'name' => 'Zgierz',
             'shortName' => 'Zg',
-            'maxNumberOfRailwaySwitches' => 44
+            'maxNumberOfRailwaySwitches' => 44,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }

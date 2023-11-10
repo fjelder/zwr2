@@ -22,7 +22,7 @@
         <td class="w-10 text-center bg-red-100 font-semibold">{{$switch->position}}</td>
         <td>{{$switch->name}}</td>
         <td>{{getTypeOfSwicth($switch->type)}}</td>
-        <td>{{$switch->control}}</td>
+        <td>{{getControl($switch->control)}}</td>
         <td><a href="">{{$key+1}}</a></td>
       </tr>
       @endforeach

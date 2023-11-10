@@ -46,6 +46,7 @@ class StationController extends Controller
     public function show(Station $station)
     {
         //
+        return view('stations.show', compact('station'));
     }
 
     /**

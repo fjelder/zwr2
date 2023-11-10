@@ -25,3 +25,26 @@ function getTypeOfSwicth(string $type) {
   $str = implode(" / ", $arr);
   return ucfirst($str);
 }
+
+function getControl(string $control) {
+  $arr = [];
+  $control = str_split($control, 1);
+  for($i=0; $i < count($control); $i++)
+  {
+    switch ($control[$i]) {
+      case '0':
+        $arr[$i] = "-";
+        break;
+      
+      case '1':
+        $arr[$i] = "kn";
+        break;
+      
+      default:
+      $arr[$i] = "?x";
+        break;
+    }
+  }
+  $str = implode(" / ", $arr);
+  return $str;
+}
