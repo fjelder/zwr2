@@ -18,7 +18,7 @@
         <td class="w-10 text-center">{{$station->id}}</td>
         <td>{{$station->name}}</td>
         <td>{{$station->shortName}}</td>
-        <td>{{$station->maxNumberOfCrossovers}}</td>
+        <td>{{$station->maxNumberOfRailwaySwitches}}</td>
         <td><a href="{{route('stations.show', $station->id)}}">Więcej</a></td>
       </tr>
       @endforeach

@@ -1,5 +1,7 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StationController;
+use App\Http\Controllers\RailwaySwitchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,13 +12,14 @@
 | be assigned to the "web" middleware group. Make something great!
 |
  */
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StationController;
+
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect()->route('stations.index');
 });
 Route::resources([
     'stations' => StationController::class,
+    'stations.railway-switches' => RailwaySwitchController::class,
 ]);
 
 Route::middleware([
