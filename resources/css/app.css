@@ -5,20 +5,39 @@
 [x-cloak] {
     display: none;
 }
-a {
-    @apply text-sky-600 my-2 inline-block;
+.grid-stations {
+    display: grid;
+    grid-template-columns:
+        minmax(20px, 50px)
+        auto
+        auto
+        minmax(75px, auto)
+        minmax(20px, 50px);
+    font-size: 1.05rem;
+    line-height: 1.75rem;
+}
+.grid-stations > div {
+    @apply border-b;
+}
+.card {
+    padding: 1.25rem;
+    background: #fff;
+    border-width: 1px;
+}
+/* a {
+    @apply inline-block my-2 text-sky-600;
 }
 a.link::before {
     content: "";
-    @apply h-11 w-5 bg-blue-300 pr-2 mr-2 transition-all;
+    @apply w-5 pr-2 mr-2 transition-all bg-blue-300 h-11;
 }
 a.link::before:hover {
-    @apply bg-orange-600 pr-6;
+    @apply pr-6 bg-orange-600;
 }
 table.mf-table {
-    @apply border-separate border border-slate-400 border-spacing-1 table-auto text-sm;
+    @apply text-sm border border-separate table-auto border-slate-400 border-spacing-1;
 }
 table.mf-table th,
 table.mf-table td {
-    @apply border border-slate-400 p-2;
-}
+    @apply p-2 border border-slate-400;
+} */

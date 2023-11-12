@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\RailwaySwitch;
+use App\Models\Station;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Arr;
 
 class RailwaySwitchController extends Controller
 {
@@ -50,10 +53,26 @@ class RailwaySwitchController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(RailwaySwitch $railwaySwitch)
+    public function edit(Request $request, RailwaySwitch $railwaySwitch)
     {
         //
-        return view('railwayswitches.edit');
+        $station = Station::where('id', $request->station)->first();
+        $switches = RailwaySwitch::where('station_id', $station->id)->get();
+        $array = array();
+        $busy = $this->busyPosition($switches);
+        for($i=0; $i<10; $i++) { 
+            if(isset($switches[$i]) && $i === $switches[$i]->position)
+                $array[$i] = $switches[$i];
+            else
+                $array[$i] = new RailwaySwitch;
+        }
+        // dd($array);
+        // dd($busy);
+        return view('railwayswitches.edit', [
+            'station' => $station,
+            'switches' => $switches,
+            'busy' => $busy
+        ]);
     }
 
     /**
@@ -70,5 +89,15 @@ class RailwaySwitchController extends Controller
     public function destroy(RailwaySwitch $railwaySwitch)
     {
         //
+    }
+
+    public function busyPosition($railwaySwitch) : array {
+        $arr = array();
+        for ($i=0; $i < count($railwaySwitch); $i++) { 
+            $arr[] = $railwaySwitch[$i]->position;
+        }
+        // dd(in_array(2, $arr));
+        // dd($arr);
+        return $arr;
     }
 }

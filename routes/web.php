@@ -1,7 +1,8 @@
 <?php
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StationController;
 use App\Http\Controllers\RailwaySwitchController;
+use App\Http\Controllers\StationController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +20,8 @@ Route::get('/', function () {
 });
 Route::resources([
     'stations' => StationController::class,
-    'stations.railway-switches' => RailwaySwitchController::class,
 ]);
-
+Route::singleton('stations.railway-switches', RailwaySwitchController::class);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

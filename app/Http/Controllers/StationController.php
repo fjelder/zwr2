@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RailwaySwitch;
 use App\Models\Station;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class StationController extends Controller
     {
         //
         return view('stations.index', [
-            'stations' => Station::all()
+            'stations' => Station::all()->sortByDesc("id"),
         ]);
     }
 
@@ -24,7 +25,9 @@ class StationController extends Controller
     public function create()
     {
         //
-        return view('stations.create');
+        return view('stations.create', [
+            'station' => new Station,
+        ]);
     }
 
     /**
@@ -46,7 +49,8 @@ class StationController extends Controller
     public function show(Station $station)
     {
         //
-        return view('stations.show', compact('station'));
+        $switches = RailwaySwitch::where('station_id', $station->id)->get();
+        return view('stations.show', compact('station', 'switches'));
     }
 
     /**
@@ -55,6 +59,7 @@ class StationController extends Controller
     public function edit(Station $station)
     {
         //
+        return view('stations.edit', compact('station'));
     }
 
     /**

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -16,28 +15,28 @@ class StationSeeder extends Seeder
         DB::table('stations')->insert([
             'name' => 'Wydartowo',
             'shortName' => 'Wd',
-            'maxNumberOfRailwaySwitches' => 12,
+            'maxNumberOfRailwaySwitches' => 10,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
         DB::table('stations')->insert([
             'name' => 'Trzemeszno',
             'shortName' => 'Tr',
-            'maxNumberOfRailwaySwitches' => 8,
+            'maxNumberOfRailwaySwitches' => 20,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
         DB::table('stations')->insert([
             'name' => 'Łódź Żabieniec',
             'shortName' => 'Łż',
-            'maxNumberOfRailwaySwitches' => 32,
+            'maxNumberOfRailwaySwitches' => 40,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
         DB::table('stations')->insert([
             'name' => 'Zgierz',
             'shortName' => 'Zg',
-            'maxNumberOfRailwaySwitches' => 44,
+            'maxNumberOfRailwaySwitches' => 50,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

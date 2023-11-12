@@ -11,6 +11,6 @@ class Station extends Model
     protected $fillable = [
         'name',
         'shortName',
-        'maxNumberOfCrossovers'
+        'maxNumberOfRailwaySwitches',
     ];
 }
