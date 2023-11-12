@@ -60,9 +60,15 @@ class RailwaySwitchController extends Controller
         $switches = RailwaySwitch::where('station_id', $station->id)->get();
         $array = array();
         $busy = $this->busyPosition($switches);
-        for($i=0; $i<10; $i++) { 
-            if(isset($switches[$i]) && $i === $switches[$i]->position)
-                $array[$i] = $switches[$i];
+        $cnt = count($switches);
+        $k = 0;
+        for($i=1; $i<=$station->maxNumberOfRailwaySwitches; $i++) { 
+            if(isset($switches[$k]) && $i == $switches[$k]->position)
+            {
+                echo $k;
+                $array[$i] = $switches[$k];
+                $k++;
+            }
             else
                 $array[$i] = new RailwaySwitch;
         }
@@ -70,7 +76,7 @@ class RailwaySwitchController extends Controller
         // dd($busy);
         return view('railwayswitches.edit', [
             'station' => $station,
-            'switches' => $switches,
+            'switches' => $array,
             'busy' => $busy
         ]);
     }
