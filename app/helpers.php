@@ -48,3 +48,9 @@ function getControl(string $control)
     $str = implode(" / ", $arr);
     return $str;
 }
+
+function pre2($variable){
+    echo '<pre>';
+    print_r($variable);
+    echo '</pre>';
+}

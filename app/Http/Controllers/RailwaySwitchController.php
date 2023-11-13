@@ -87,6 +87,18 @@ class RailwaySwitchController extends Controller
     public function update(Request $request, RailwaySwitch $railwaySwitch)
     {
         //
+        $switches = $request->switch; 
+        $cnt = count($switches);
+        
+        for($i = 1; $i <= $cnt; $i++)
+        {
+            if($switches[$i]['name'] === null){
+                unset($switches[$i]);
+            }  
+        }
+ 
+        pre2($switches);
+        // dd($switches);
     }
 
     /**

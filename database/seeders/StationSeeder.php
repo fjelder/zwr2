@@ -22,7 +22,7 @@ class StationSeeder extends Seeder
         DB::table('stations')->insert([
             'name' => 'Trzemeszno',
             'shortName' => 'Tr',
-            'maxNumberOfRailwaySwitches' => 20,
+            'maxNumberOfRailwaySwitches' => 50,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
