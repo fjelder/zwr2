@@ -1,4 +1,7 @@
 <?php
+
+use SebastianBergmann\Type\NullType;
+
 function getTypeOfSwitch(string $type)
 {
   $arr = [];
@@ -26,27 +29,29 @@ function getTypeOfSwitch(string $type)
   return ucfirst($str);
 }
 
-function getControl(string $control)
+function getControl($control)
 {
-  $arr = [];
-  $control = str_split($control, 1);
-  for ($i = 0; $i < count($control); $i++) {
-    switch ($control[$i]) {
-      case "0":
-        $arr[$i] = "-";
-        break;
+  if(isset($control)){
+    $arr = [];
+    $control = str_split($control, 1);
+    for ($i = 0; $i < count($control); $i++) {
+      switch ($control[$i]) {
+        case "0":
+          $arr[$i] = "-";
+          break;
 
-      case "1":
-        $arr[$i] = "kn";
-        break;
+        case "1":
+          $arr[$i] = "kn";
+          break;
 
-      default:
-        $arr[$i] = "?x";
-        break;
+        default:
+          $arr[$i] = "?x";
+          break;
+      }
     }
-  }
-  $str = implode(" / ", $arr);
-  return $str;
+    $str = implode(" / ", $arr);
+    return $str;
+    }
 }
 
 function pre2($variable)
