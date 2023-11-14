@@ -87,12 +87,12 @@ class RailwaySwitchController extends Controller
     //
     $switches = $request->switch;
     $cnt = count($switches);
-
     for ($i = 1; $i <= $cnt; $i++) {
       if ($switches[$i]["name"] === null) {
         unset($switches[$i]);
       }
     }
+        dd($switches);
 
     foreach ($switches as $key => $value) {
         RailwaySwitch::create($value);
