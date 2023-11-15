@@ -68,6 +68,15 @@ class StationController extends Controller
     public function update(Request $request, Station $station)
     {
         //
+        $array[] = $request->except('_token', '_method');
+        $station = Station::find($station->id);
+        $station->name = $request->input('name');
+        $station->shortName = $request->input('shortName');
+        $station->maxNumberOfRailwaySwitches = $request->input('maxNumberOfRailwaySwitches');
+        $station->save();
+        session()->flash('flash.banner', 'Stacja została zaktualizowana!');
+        session()->flash('flash.bannerStyle', 'success');
+        return redirect()->route('stations.show', 1);
     }
 
     /**

@@ -31,7 +31,7 @@ function getTypeOfSwitch(string $type)
 
 function getControl($control)
 {
-  if(isset($control)){
+  if (isset($control)) {
     $arr = [];
     $control = str_split($control, 1);
     for ($i = 0; $i < count($control); $i++) {
@@ -51,7 +51,7 @@ function getControl($control)
     }
     $str = implode(" / ", $arr);
     return $str;
-    }
+  }
 }
 
 function pre2($variable)

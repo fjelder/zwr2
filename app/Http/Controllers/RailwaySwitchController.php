@@ -65,13 +65,12 @@ class RailwaySwitchController extends Controller
     $k = 0;
     for ($i = 1; $i <= $station->maxNumberOfRailwaySwitches; $i++) {
       if (isset($switches[$k]) && $i == $switches[$k]->position) {
-        echo $k;
         $array[$i] = $switches[$k];
         $k++;
       } else {
         $array[$i] = new RailwaySwitch();
       }
-    }   
+    }
     return view("railwayswitches.edit", [
       "station" => $station,
       "switches" => $array,
@@ -92,12 +91,11 @@ class RailwaySwitchController extends Controller
         unset($switches[$i]);
       }
     }
-        dd($switches);
+    dd($switches);
 
     foreach ($switches as $key => $value) {
-        RailwaySwitch::create($value);
+      RailwaySwitch::create($value);
     }
-
   }
 
   /**
