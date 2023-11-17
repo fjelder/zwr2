@@ -1,22 +1,36 @@
 <x-app2-layout>
-    <h1 class="mb-10 text-3xl">Dane szczegółowe</h1>
-    <p class="mb-3 text-2xl font-normal">Stacja {{$station->name}}</p>
+    <h1 class="mb-10 text-3xl">Stacja {{$station->name}}</h1>
+    <p class="mb-3 text-2xl font-normal">Dane szczegółowe</p>
+
+
     <div class="card">
-        <p>Indywidualny numer stacji w bazie danych:</p>
-        <p><strong>{{$station->id}}</strong></p>
-        <p>Pełna nazwa stacji:</p>
-        <p> <strong>{{$station->name}}</strong></p>
-        <p>Skrócona nazwa stacji:</p>
-        <p><strong>{{$station->shortName}}</strong></p>
-        <p>Maksymalna zdefiniowana liczba zwrotnic:</p>
-        <strong>{{$station->maxNumberOfRailwaySwitches}}</strong>
-        <p>Utworzono:</p>
-        <strong>{{$station->created_at}}</strong>
-        <p>Ostatnia aktualizacja</p>
-        <p><strong>{{$station->updated_at}}</strong></p>
+        <div class="flex">
+            <p class="border-r w-96">Indywidualny numer stacji w bazie danych:</p>
+            <p class="ml-4 font-semibold">{{$station->id}}</p>
+        </div>
+        <div class="flex">
+            <p class="border-r w-96">Pełna nazwa stacji:</p>
+            <p class="ml-4 font-semibold">{{$station->name}}</p>
+        </div>
+        <div class="flex">
+            <p class="border-r w-96">Skrócona nazwa stacji:</p>
+            <p class="ml-4 font-semibold">{{$station->shortName}}</p>
+        </div>
+        <div class="flex">
+            <p class="border-r w-96">Linia kolejowa</p>
+            <p class="ml-4 font-semibold">x</p>
+        </div>
+        <div class="flex">
+            <p class="border-r w-96">Maksymalna zdefiniowana liczba zwrotnic:</p>
+            <p class="ml-4 font-semibold">{{$station->maxNumberOfRailwaySwitches}}</p>
+        </div>
+        <div class="flex mt-6 text-sm text-gray-500">
+            <p>Utworzono: {{$station->created_at->format('d.m.Y')}}r.</p>
+            <p class="ml-4">Zaktualizowano: {{$station->updated_at->format('d.m.Y')}}r.</p>
+        </div>
     </div>
 
-    <div class="flex p-4 mt-1 mb-12 text-gray-600">
+    <div class="tool-card">
         <a href="{{route('stations.edit', $station->id)}}" class="text-gray-600 hover:text-sky-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
@@ -29,7 +43,7 @@
         </a>
     </div>
 
-    <h1 class="mb-10 text-3xl">Zwrotnice</h1>
+
     <p class="mb-3 text-2xl font-normal">Lista zdefiniowanych zwrotnic</p>
     <div class="flex w-full overflow-x-auto card ">
         <div class="flex flex-col items-center justify-center border">
@@ -45,7 +59,7 @@
         </div>
         @endforeach
     </div>
-    <div class="flex p-4 mt-1 mb-12 text-gray-600">
+    <div class="tool-card">
         <a href="{{route('stations.railway-switches.edit', $station->id)}}" class="text-gray-600 hover:text-sky-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
