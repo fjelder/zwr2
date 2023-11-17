@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Line extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'number',
+        'stationA',
+        'stationB',
+    ];
 }

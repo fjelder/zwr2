@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Station extends Model
 {
@@ -13,4 +14,8 @@ class Station extends Model
         'shortName',
         'maxNumberOfRailwaySwitches',
     ];
+    public function line2(): BelongsTo
+    {
+        return $this->belongsTo(Line::class, 'line_id');
+    }
 }

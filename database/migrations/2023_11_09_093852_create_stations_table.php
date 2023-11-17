@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->string('shortName', 15);
+            $table->unsignedBigInteger('line_id');
+            $table->foreign('line_id')->references('id')->on('lines');
             $table->integer('maxNumberOfRailwaySwitches');
             $table->timestamps();
         });

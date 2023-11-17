@@ -15,7 +15,7 @@ class StationController extends Controller
     {
         //
         return view('stations.index', [
-            'stations' => Station::all()->sortByDesc("id"),
+            'stations' => Station::orderByDesc("id")->paginate(10),
         ]);
     }
 

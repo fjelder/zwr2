@@ -14,7 +14,7 @@ class LineController extends Controller
     {
         //
         return view('Lines.index', [
-            'lines' => Line::orderBy('number')->paginate(15)
+            'lines' => Line::orderBy('number')->paginate(8)
         ]);
     }
 
@@ -33,6 +33,10 @@ class LineController extends Controller
     public function store(Request $request)
     {
         //
+        Line::create($request->all());
+        session()->flash('flash.banner', 'Linia kolejowa została zapisana!');
+        session()->flash('flash.bannerStyle', 'success');
+        return redirect()->route('lines.index');
     }
 
     /**
@@ -49,6 +53,7 @@ class LineController extends Controller
     public function edit(Line $line)
     {
         //
+        return view('lines.edit', compact('line'));
     }
 
     /**

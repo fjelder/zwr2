@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('lines', function (Blueprint $table) {
             $table->id();
-            $table->string('number', 3);
+            $table->unsignedInteger('number');
             $table->text('stationA');
             $table->text('stationB');
             $table->timestamps();
