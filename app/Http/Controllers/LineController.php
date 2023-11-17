@@ -14,7 +14,7 @@ class LineController extends Controller
     {
         //
         return view('Lines.index', [
-            'lines' => Line::orderBy('number')->paginate(1)
+            'lines' => Line::orderBy('number')->paginate(15)
         ]);
     }
 
@@ -24,6 +24,7 @@ class LineController extends Controller
     public function create()
     {
         //
+        return view('Lines.create');
     }
 
     /**
