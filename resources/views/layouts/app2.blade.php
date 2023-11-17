@@ -96,20 +96,13 @@
                     {{ $slot }}
                 </div>
             </div>
+        </div>
+    </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
+    @stack('modals')
 
-            <div class="hidden min-h-screen p-10 bg-gray-100">
-
-                <!-- Page Content -->
-                <main class="">
-                    {{ $slot }}
-                </main>
-            </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
-
-            @stack('modals')
-
-            @livewireScripts
+    @livewireScripts
 </body>
 
 </html>

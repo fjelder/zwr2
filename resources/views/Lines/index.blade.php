@@ -124,6 +124,7 @@
                     </tbody>
                 </table>
             </div>
+            <div class="my-4 pagination-links">{{ $lines->onEachSide(5)->links() }}</div>
             <nav class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0" aria-label="Table navigation">
                 <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
                     Showing
