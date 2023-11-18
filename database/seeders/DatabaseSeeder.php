@@ -17,8 +17,9 @@ class DatabaseSeeder extends Seeder
             StationSeeder::class,
             RailwaySwitchSeeder::class,
         ]);
-        // \App\Models\User::factory(10)->create();
 
+        \App\Models\Line::factory(50)->create();
+        // \App\Models\User::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

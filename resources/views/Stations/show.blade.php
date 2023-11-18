@@ -17,8 +17,12 @@
             <p class="ml-4 font-semibold">{{$station->shortName}}</p>
         </div>
         <div class="flex">
-            <p class="border-r w-96">Linia kolejowa</p>
-            <p class="ml-4 font-semibold">x</p>
+            <p class="border-r w-96">Linia kolejowa nr:</p>
+            <p class="ml-4 font-semibold">
+                {{$station->line->number}} //
+                {{$station->line->stationA}} -
+                {{$station->line->stationB}}
+            </p>
         </div>
         <div class="flex">
             <p class="border-r w-96">Maksymalna zdefiniowana liczba zwrotnic:</p>

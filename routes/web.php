@@ -1,8 +1,12 @@
 <?php
+
 use App\Http\Controllers\RailwaySwitchController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\LineController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
+use App\Models\Line;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +38,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+Route::get('/search', function (Request $request) {
+    return Line::search($request->search)->get();
 });

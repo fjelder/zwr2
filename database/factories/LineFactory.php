@@ -18,6 +18,9 @@ class LineFactory extends Factory
     {
         return [
             //
+            'number' => $this->faker->numberBetween($min = 400, $max = 999),
+            'stationA' => $this->faker->city(),
+            'stationB' => $this->faker->city(),
         ];
     }
 }

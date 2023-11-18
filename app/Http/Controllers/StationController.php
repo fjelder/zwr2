@@ -72,11 +72,12 @@ class StationController extends Controller
         $station = Station::find($station->id);
         $station->name = $request->input('name');
         $station->shortName = $request->input('shortName');
+        $station->line_id = $request->input('line_id');
         $station->maxNumberOfRailwaySwitches = $request->input('maxNumberOfRailwaySwitches');
         $station->save();
         session()->flash('flash.banner', 'Stacja została zaktualizowana!');
         session()->flash('flash.bannerStyle', 'success');
-        return redirect()->route('stations.show', 1);
+        return redirect()->route('stations.show', $station->id);
     }
 
     /**

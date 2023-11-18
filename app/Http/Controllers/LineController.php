@@ -14,7 +14,7 @@ class LineController extends Controller
     {
         //
         return view('Lines.index', [
-            'lines' => Line::orderBy('number')->paginate(8)
+            'lines' => Line::orderBy('number')->paginate(10)
         ]);
     }
 

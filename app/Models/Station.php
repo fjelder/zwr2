@@ -14,7 +14,7 @@ class Station extends Model
         'shortName',
         'maxNumberOfRailwaySwitches',
     ];
-    public function line2(): BelongsTo
+    public function line(): BelongsTo
     {
         return $this->belongsTo(Line::class, 'line_id');
     }
